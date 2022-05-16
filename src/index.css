@@ -3,13 +3,12 @@
 :root {
   /* Colors */
   --clr-white: #fff;
-  --clr-cool-blue: #4386bf;
-  --clr-pinkish-gray: #c4c4c4;
-  --clr-black: #121212;
-  --clr-azure: #0290ff;
-  --clr-grey-border: #e8e8e8;
-  --clr-body: #fafafa;
-  --clr-warm-grey: #888;
+  --clr-blue: #007bfc;
+  --clr-black: #212529;
+  --clr-turkwaz: #1ba2b9;
+  --clr-light-border: #1481fc;
+  --clr-red: #dd3646;
+  --clr-grey: #090909;
 
   /* font families */
   --ff-montserrat: 'Montserrat', sans-serif;
