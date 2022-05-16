@@ -1,8 +1,6 @@
-import React from 'react';
-import './profile.css';
+import React from "react";
+import "./profile.css";
 
-const Profile = () => {
-  return <div>Profile</div>;
-};
+const Profile = () => <h2>You can read about my profile here.</h2>;
 
 export default Profile;
