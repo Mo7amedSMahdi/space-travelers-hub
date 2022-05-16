@@ -1,6 +1,18 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Mission from "./components/mission/Mission";
+import Rocket from "./components/rocket/Rocket";
+import Profile from "./components/profile/Profile";
+import Navbar from "./components/header/Navbar";
+
 const App = () => (
   <div className="App">
-    <h1>Welcome!</h1>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Rocket />} />
+      <Route path="/mission" element={<Mission />} />
+      <Route path="/profile" element={<Profile />} />
+    </Routes>
   </div>
 );
 
