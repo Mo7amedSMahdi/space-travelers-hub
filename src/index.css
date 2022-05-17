@@ -8,7 +8,7 @@
   --clr-turkwaz: #1ba2b9;
   --clr-light-border: #1481fc;
   --clr-red: #dd3646;
-  --clr-grey: #090909;
+  --clr-grey: #a3a5a8;
 
   /* font families */
   --ff-montserrat: 'Montserrat', sans-serif;
@@ -66,7 +66,7 @@ body {
   color: var(--clr-black);
   scroll-behavior: smooth;
   background: var(--clr-body);
-  padding-bottom: 8rem;
+  padding-inline: 2rem;
 }
 
 /* A elements that don't have a class get default styles */
