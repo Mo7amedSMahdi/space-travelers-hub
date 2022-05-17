@@ -8,11 +8,7 @@ const rootReducer = combineReducers({ missions: missionsReducer });
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: [
-    ...getDefaultMiddleware(),
-    // logger({ destination: "console" }),\
-    api,
-  ],
+  middleware: [...getDefaultMiddleware(), api],
 });
 
 export default store;
