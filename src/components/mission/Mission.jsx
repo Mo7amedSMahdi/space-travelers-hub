@@ -55,20 +55,12 @@ const Mission = () => {
                   </TableCell>
                   <TableCell sx={{ maxWidth: 600 }}>{mission.description}</TableCell>
                   <TableCell align="center">
-                    {!mission.resolved ? <p className="badge badge--grayed">NOT A MEMBER</p> : <p className="badge badge--active">Active Member</p>}
+                    {(mission.reserved && <p className="badge badge--active">Active Member</p>) || (
+                      <p className="badge badge--grayed">NOT A MEMBER</p>
+                    )}
                   </TableCell>
                   <TableCell align="center">
-                    {!mission.resolved ? (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          handelJoinMission(mission.id);
-                        }}
-                        className="btn btn--outline"
-                      >
-                        Join mission
-                      </button>
-                    ) : (
+                    {(mission.reserved && (
                       <button
                         onClick={() => {
                           handelLeaveMission(mission.id);
@@ -77,6 +69,16 @@ const Mission = () => {
                         className="btn btn--outline btn--red"
                       >
                         Leave Mission
+                      </button>
+                    )) || (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          handelJoinMission(mission.id);
+                        }}
+                        className="btn btn--outline"
+                      >
+                        Join mission
                       </button>
                     )}
                   </TableCell>
