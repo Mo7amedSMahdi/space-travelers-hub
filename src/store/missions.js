@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolki';
+import { createSlice } from '@reduxjs/toolkit';
 
 const missions = [
   {

@@ -1,3 +1,15 @@
+.header {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+
+  --gap: 1.5rem;
+}
+
+.header-title img {
+  max-width: 45px;
+}
+
 .active {
   text-decoration: underline;
 }
