@@ -8,7 +8,7 @@
   --clr-turkwaz: #1ba2b9;
   --clr-light-border: #1481fc;
   --clr-red: #dd3646;
-  --clr-grey: #a3a5a8;
+  --clr-gray: #a3a5a8;
 
   /* font families */
   --ff-montserrat: 'Montserrat', sans-serif;
@@ -62,7 +62,7 @@ html:focus-within {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: var(--ff-montserrat);
+  font-family: var(--ff-roboto-sl);
   color: var(--clr-black);
   scroll-behavior: smooth;
   background: var(--clr-body);
@@ -191,4 +191,30 @@ main {
   width: fit-content;
   padding: 0;
   margin: 0;
+}
+
+.btn--outline {
+  border: 1px solid var(--clr-gray);
+  border-radius: 0.5rem;
+  color: var(--clr-black);
+}
+
+.btn--red {
+  border: 1px solid var(--clr-red);
+  color: var(--clr-red);
+}
+
+.badge {
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  color: var(--clr-white);
+  text-align: center;
+}
+
+.badge--active {
+  background: var(--clr-turkwaz);
+}
+
+.badge--grayed {
+  background: var(--clr-gray);
 }

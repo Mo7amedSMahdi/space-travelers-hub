@@ -15,7 +15,7 @@ const Mission = () => {
   return (
     <section className="missions">
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650, th: { border: '1px solid #a3a5a8' } }} aria-label="missions table">
+        <Table sx={{ minWidth: 650, th: { border: '1px solid var(--clr-gray)' } }} aria-label="missions table">
           <TableHead>
             <TableRow>
               <TableCell>Mission</TableCell>
@@ -26,19 +26,20 @@ const Mission = () => {
           </TableHead>
           <TableBody>
             {missions.map((mission) => (
-              <TableRow key={mission.mission_id} sx={{ td: { border: '1px solid #a3a5a8' } }}>
-                <TableCell component="th" scope="row">
+              <TableRow
+                key={mission.mission_id}
+                sx={{ td: { border: '1px solid var(--clr-gray)' }, '&:nth-of-type(odd)': { background: '#F2F2F2' } }}
+              >
+                <TableCell sx={{ maxWidth: 150 }} component="th" scope="row">
                   {mission.mission_name}
                 </TableCell>
-                <TableCell>{mission.description}</TableCell>
-                <TableCell>
-                  <button type="button" className="btn">
-                    Status
-                  </button>
+                <TableCell sx={{ maxWidth: 600 }}>{mission.description}</TableCell>
+                <TableCell align="center">
+                  <p className="badge badge--active">Status</p>
                 </TableCell>
-                <TableCell>
-                  <button type="button" className="btn">
-                    Leav or join
+                <TableCell align="center">
+                  <button type="button" className="btn btn--outline">
+                    Join mission
                   </button>
                 </TableCell>
               </TableRow>
