@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector, useDispatch } from 'react-redux';
-import { getMissions, joinMission } from '../../store/missions';
+import { getMissions, joinMission, leaveMission } from '../../store/missions';
 import './missions.css';
 
 const Mission = () => {
@@ -21,6 +21,10 @@ const Mission = () => {
 
   const handelJoinMission = (id) => {
     dispatch(joinMission(id));
+  };
+
+  const handelLeaveMission = (id) => {
+    dispatch(leaveMission(id));
   };
   return (
     <section className="missions">
@@ -65,7 +69,13 @@ const Mission = () => {
                         Join mission
                       </button>
                     ) : (
-                      <button type="button" className="btn btn--outline btn--red">
+                      <button
+                        onClick={() => {
+                          handelLeaveMission(mission.id);
+                        }}
+                        type="button"
+                        className="btn btn--outline btn--red"
+                      >
                         Leave Mission
                       </button>
                     )}

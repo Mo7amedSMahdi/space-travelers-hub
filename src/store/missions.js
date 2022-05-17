@@ -32,11 +32,15 @@ const slice = createSlice({
       const index = mission.list.findIndex((m) => m.id === action.payload);
       mission.list[index].reserved = true;
     },
+    leaveMission: (mission, action) => {
+      const index = mission.list.findIndex((m) => m.id === action.payload);
+      mission.list[index].reserved = false;
+    },
   },
 });
 
 export const {
-  missionsRequested, missionsRecieved, missionsRequestFailed, joinMission,
+  missionsRequested, missionsRecieved, missionsRequestFailed, joinMission, leaveMission,
 } = slice.actions;
 export default slice.reducer;
 
