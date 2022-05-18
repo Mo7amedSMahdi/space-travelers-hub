@@ -19,7 +19,9 @@
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
     "no-shadow": "off",
-    "quotes": "off"
+    "quotes": "off",
+    "no-param-reassign": "off",
+    "max-len": ["error", { "code": 120 }]
   },
   "ignorePatterns": ["dist/", "build/"]
 }
