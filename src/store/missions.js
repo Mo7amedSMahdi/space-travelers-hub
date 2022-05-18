@@ -16,17 +16,28 @@ const slice = createSlice({
       mission.loading = true;
     },
     missionsRecieved: (mission, action) => {
-      mission.list = action.payload;
+      mission.list = action.payload.map((m) => ({
+        id: m.mission_id,
+        name: m.mission_name,
+        description: m.description,
+        reserved: false,
+      }));
       mission.loading = false;
       mission.lastFetch = Date.now();
     },
     missionsRequestFailed: (mission) => {
       mission.loading = false;
     },
+    joinMission: (mission, action) => {
+      const index = mission.list.findIndex((m) => m.id === action.payload);
+      mission.list[index].reserved = true;
+    },
   },
 });
 
-export const { missionsRequested, missionsRecieved, missionsRequestFailed } = slice.actions;
+export const {
+  missionsRequested, missionsRecieved, missionsRequestFailed, joinMission,
+} = slice.actions;
 export default slice.reducer;
 
 // const missionsRecieved = createAction('missionsRecieved');

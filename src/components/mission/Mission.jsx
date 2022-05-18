@@ -8,16 +8,20 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector, useDispatch } from 'react-redux';
-import { getMissions } from '../../store/missions';
+import { getMissions, joinMission } from '../../store/missions';
 import './missions.css';
 
 const Mission = () => {
-  const missions = useSelector((store) => store.missions);
+  const missions = useSelector((state) => state.missions);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMissions());
-  }, []);
+  }, [missions.list]);
+
+  const handelJoinMission = (id) => {
+    dispatch(joinMission(id));
+  };
   return (
     <section className="missions">
       {missions.loading ? (
@@ -36,20 +40,35 @@ const Mission = () => {
             <TableBody>
               {missions.list.map((mission) => (
                 <TableRow
-                  key={mission.mission_id}
-                  sx={{ td: { border: '1px solid var(--clr-gray)' }, '&:nth-of-type(odd)': { background: '#F2F2F2' } }}
+                  key={mission.id}
+                  sx={{
+                    td: { border: '1px solid var(--clr-gray)' },
+                    '&:nth-of-type(odd)': { background: '#F2F2F2' },
+                  }}
                 >
                   <TableCell sx={{ maxWidth: 150 }} component="th" scope="row">
-                    {mission.mission_name}
+                    {mission.name}
                   </TableCell>
                   <TableCell sx={{ maxWidth: 600 }}>{mission.description}</TableCell>
                   <TableCell align="center">
-                    <p className="badge badge--active">Status</p>
+                    {!mission.resolved ? <p className="badge badge--grayed">NOT A MEMBER</p> : <p className="badge badge--active">Active Member</p>}
                   </TableCell>
                   <TableCell align="center">
-                    <button type="button" className="btn btn--outline">
-                      Join mission
-                    </button>
+                    {!mission.resolved ? (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          handelJoinMission(mission.id);
+                        }}
+                        className="btn btn--outline"
+                      >
+                        Join mission
+                      </button>
+                    ) : (
+                      <button type="button" className="btn btn--outline btn--red">
+                        Leave Mission
+                      </button>
+                    )}
                   </TableCell>
                 </TableRow>
               ))}
