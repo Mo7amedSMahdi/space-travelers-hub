@@ -1,3 +1,29 @@
+.header {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--clr-grey);
+
+  --gap: 1.5rem;
+}
+
+.header-title img {
+  max-width: 45px;
+  max-height: 45px;
+}
+
+.nav--links {
+  gap: 0;
+}
+
+.nav--links li {
+  padding-inline: 1rem;
+}
+
+.nav--links li:last-child {
+  border-left: 1px solid var(--clr-black);
+}
+
 .active {
   text-decoration: underline;
 }
