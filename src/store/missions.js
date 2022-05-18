@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import moment from 'moment';
-// import axios from 'axios';
 import { apiCallBegan } from './api';
 
 const url = '/missions';
