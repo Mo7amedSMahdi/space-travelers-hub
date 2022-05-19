@@ -1,5 +1,5 @@
-import axios from 'axios';
-import * as actions from '../api';
+import axios from "axios";
+import * as actions from "../api";
 
 const api = ({ dispatch }) => (next) => async (action) => {
   if (action.type !== actions.apiCallBegan.type) return next(action);
@@ -14,7 +14,7 @@ const api = ({ dispatch }) => (next) => async (action) => {
 
   try {
     const response = await axios.request({
-      baseURL: 'https://api.spacexdata.com/v3',
+      baseURL: "https://api.spacexdata.com/v3",
       url,
       method,
       data,
