@@ -21,7 +21,8 @@
     "no-shadow": "off",
     "quotes": "off",
     "no-param-reassign": "off",
-    "max-len": ["error", { "code": 200 }]
+    "max-len": ["error", { "code": 200 }],
+    "linebreak-style": "off"
   },
   "ignorePatterns": ["dist/", "build/"]
 }
