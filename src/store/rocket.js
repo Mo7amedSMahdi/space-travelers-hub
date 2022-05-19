@@ -41,7 +41,6 @@ export const {
   leaveRocket,
 } = slice.actions;
 export default slice.reducer;
-// const missionsRecieved = createAction('missionsRecieved');
 export const getRockets = () => async (dispatch, getState) => {
   const { lastFetch } = getState().missions;
   const diffInMinutes = moment().diff(moment(lastFetch), "minutes");
