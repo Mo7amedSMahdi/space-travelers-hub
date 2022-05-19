@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { getRockets, joinRocket, leaveRocket } from "../../store/rocket";
-import RocketCard from "./RocketCard";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { getRockets, joinRocket, leaveRocket } from '../../store/rocket';
+import RocketCard from './RocketCard';
 
 const Rockets = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,6 @@ const Rockets = () => {
 
   useEffect(() => {
     dispatch(getRockets());
-    console.log(rockets);
   }, []);
 
   return (
