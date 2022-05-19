@@ -1,0 +1,12 @@
+.profile {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.missions {
+  width: 100%;
+}
+
+.rockets {
+  width: 100%;
+}
