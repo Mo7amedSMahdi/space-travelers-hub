@@ -1,20 +1,24 @@
-import React, { useEffect } from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { useSelector, useDispatch } from 'react-redux';
-import { getMissions } from '../../store/missions';
-import './profile.css';
+import React, { useEffect } from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { useSelector, useDispatch } from "react-redux";
+import { getMissions } from "../../store/missions";
+import { getRockets } from "../../store/rocket";
+
+import "./profile.css";
 
 const Profile = () => {
   const missions = useSelector((state) => state.missions);
+  const rockets = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMissions());
-  }, [missions.list]);
+    dispatch(getRockets());
+  }, []);
 
   return (
     <section className="profile flex">
@@ -23,7 +27,10 @@ const Profile = () => {
           <h2>My Missions</h2>
         </div>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650, th: { border: '1px solid var(--clr-gray)' } }} aria-label="missions table">
+          <Table
+            sx={{ minWidth: 650, th: { border: "1px solid var(--clr-gray)" } }}
+            aria-label="missions table"
+          >
             <TableBody>
               {missions.list
                 .filter((mission) => mission.reserved)
@@ -31,7 +38,7 @@ const Profile = () => {
                   <TableRow
                     key={mission.id}
                     sx={{
-                      td: { border: '1px solid var(--clr-gray)' },
+                      td: { border: "1px solid var(--clr-gray)" },
                     }}
                   >
                     <TableCell component="th" scope="row">
@@ -43,25 +50,32 @@ const Profile = () => {
           </Table>
         </TableContainer>
       </div>
+
       <div className="rockets flex flex--column">
         <div className="title">
           <h2>My Rockets</h2>
-          <p>**Replace mission with rockets**</p>
         </div>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650, th: { border: '1px solid var(--clr-gray)' } }} aria-label="missions table">
+          <Table
+            sx={{ minWidth: 650, th: { border: "1px solid var(--clr-gray)" } }}
+            aria-label="missions table"
+          >
             <TableBody>
-              {missions.list
-                .filter((mission) => mission.reserved)
-                .map((mission) => (
+              {rockets.list
+                .filter((rocket) => rocket.reserved)
+                .map((rocket) => (
                   <TableRow
-                    key={mission.id}
+                    key={rocket.id}
                     sx={{
-                      td: { border: '1px solid var(--clr-gray)' },
+                      td: { border: "1px solid var(--clr-gray)" },
                     }}
                   >
-                    <TableCell sx={{ maxWidth: 150 }} component="th" scope="row">
-                      {mission.name}
+                    <TableCell
+                      sx={{ maxWidth: 150 }}
+                      component="th"
+                      scope="row"
+                    >
+                      {rocket.rocket_name}
                     </TableCell>
                   </TableRow>
                 ))}

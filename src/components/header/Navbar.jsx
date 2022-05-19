@@ -1,24 +1,24 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import './navbar.css';
-import logo from '../../assets/planet.png';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import "./navbar.css";
+import logo from "../../assets/images/planet.png";
 
 function Navbar() {
   const links = [
     {
       id: 1,
-      path: '/',
-      text: 'Rockets',
+      path: "/",
+      text: "Rockets",
     },
     {
       id: 2,
-      path: '/mission',
-      text: 'Missions',
+      path: "/mission",
+      text: "Missions",
     },
     {
       id: 3,
-      path: '/profile',
-      text: 'My Profile',
+      path: "/profile",
+      text: "My Profile",
     },
   ];
 
