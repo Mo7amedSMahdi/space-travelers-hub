@@ -4,6 +4,10 @@ import { combineReducers } from "redux";
 import api from "./middleware/api";
 import missionsReducer from "./missions";
 import rocketReducer from "./rocket";
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+import api from './middleware/api';
+import missionsReducer from './missions';
 
 const rootReducer = combineReducers({
   missions: missionsReducer,
